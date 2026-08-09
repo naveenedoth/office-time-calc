@@ -1,75 +1,83 @@
-# React + TypeScript + Vite
+# Office Time Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, responsive **Office Time Calculator** built with React and Vite.
 
-Currently, two official plugins are available:
+The app provides multiple ways to calculate office working hours, including calculating clock-out time from a clock-in time and required working hours, calculating time spent between clock-in and clock-out, and handling multiple entry/exit periods.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+* Calculate **clock-out time** from:
+  * Clock-in time
+  * Required working hours
+* Calculate **total time spent in office** from:
+  * Clock-in time
+  * Clock-out time
+* Add multiple **entry/exit** time periods and calculate total working time.
+* Calculate the **clock-out time required to reach a target number of working hours** across multiple entry/exit periods.
+* Add and remove multiple entry/exit periods.
+* 12-hour and 24-hour time formats where applicable.
+* Responsive UI for:
+  * Desktop
+  * Laptop
+  * Tablet
+  * Mobile
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+* **React** – UI library
+* **TypeScript** – Type-safe JavaScript
+* **Vite** – Development server and build tool
+* **Material UI (MUI)** – UI components and styling
+* **Emotion** – Styling engine used by Material UI
+* **ESLint** – Code linting
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Make sure you have the following installed:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* [Node.js](https://nodejs.org/)
+* npm
+* Git
 
+### Clone the Repository
+
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd office-time-calc
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Install Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Install all required packages:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
+
+### Run the Development Server
+
+Start the Vite development server:
+
+```bash
+npm run dev
+```
+
+The terminal will provide a local URL, usually:
+
+```text
+http://localhost:5173
+```
+
+Open it in your browser.
+
+After cloning the project, dependencies can always be restored with:
+
+```bash
+npm install
+```
+
+## License
+
+This project is for personal and educational use.
