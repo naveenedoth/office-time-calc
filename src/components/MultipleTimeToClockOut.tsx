@@ -24,6 +24,7 @@ const MultipleTimeToClockOut = () => {
   ]);
   const [targetHours, setTargetHours] = useState<number | "">(8);
   const [result, setResult] = useState("");
+  const [targetAchieved, setTargetAchieved] = useState(false);
 
   const addTimePair = () => {
     setTimePairs([
@@ -65,6 +66,11 @@ const MultipleTimeToClockOut = () => {
     });
 
     const targetMinutes = Number(targetHours) * 60;
+    if (totalMinutes >= targetMinutes) {
+      setTargetAchieved(true);
+    } else {
+      setTargetAchieved(false);
+    }
     const remainingMinutes = targetMinutes - totalMinutes;
     const lastExit = timePairs.at(-1)?.exit;
 
@@ -183,8 +189,19 @@ const MultipleTimeToClockOut = () => {
                 <Typography variant="body2" color="text.secondary">
                   Clock out time
                 </Typography>
-
                 <Typography variant="h5">{result}</Typography>
+                {targetAchieved && (
+                  <Typography
+                    variant="body2"
+                    color="success.main"
+                    sx={{
+                      fontWeight: 600,
+                      color: "#7CFFB2",
+                    }}
+                  >
+                    Required hours achieved
+                  </Typography>
+                )}
               </CardContent>
             </Card>
           )}

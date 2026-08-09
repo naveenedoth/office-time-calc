@@ -30,9 +30,12 @@ const SingleTimeSpent = () => {
       Number(clockoutTime.split(":")[1]),
     );
 
-    const totalMinutes = Math.round(
+    let totalMinutes = Math.round(
       (clockOutDate.getTime() - clockInDate.getTime()) / 60000,
     );
+    if (totalMinutes < 0) {
+      totalMinutes += 24 * 60;
+    }
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
 

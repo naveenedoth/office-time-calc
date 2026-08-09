@@ -15,6 +15,7 @@ import SingleTimeToClockOut from "../components/SingleTimeToClockOut";
 import SingleTimeSpent from "../components/SingleTimeSpent";
 import MultipleTimeSpent from "../components/MultipleTimeSpent";
 import MultipleTimeToClockOut from "../components/MultipleTimeToClockOut";
+import { FOOTER_NAME, FOOTER_LINK, APPBAR_APPNAME } from "../utils/constants";
 
 export default function ClockApp() {
   const [selectedFeature, setSelectedFeature] = useState<number>(0);
@@ -71,7 +72,7 @@ export default function ClockApp() {
               textAlign: { xs: "center", sm: "left" },
             }}
           >
-            Office Time Calculator App
+            {APPBAR_APPNAME}
           </Typography>
           <Stack
             direction={{ xs: "row", sm: "row" }}
@@ -189,7 +190,7 @@ export default function ClockApp() {
           Made by{" "}
           <Box
             component="a"
-            href="https://naveenls-portfolio-website.vercel.app/"
+            href={FOOTER_LINK}
             target="_blank"
             rel="noopener noreferrer"
             sx={{
@@ -203,7 +204,7 @@ export default function ClockApp() {
               },
             }}
           >
-            Naveen L S
+            {FOOTER_NAME}
           </Box>
         </Typography>
       </Box>
