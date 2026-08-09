@@ -16,7 +16,7 @@ import SingleTimeSpent from "../components/SingleTimeSpent";
 import MultipleTimeSpent from "../components/MultipleTimeSpent";
 import MultipleTimeToClockOut from "../components/MultipleTimeToClockOut";
 
-const ClockApp = () => {
+export default function ClockApp() {
   const [selectedFeature, setSelectedFeature] = useState<number>(0);
 
   const features = [
@@ -47,11 +47,17 @@ const ClockApp = () => {
   ];
 
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        background:
+          "radial-gradient(circle at 50% -10%, rgba(124,77,255,0.18), transparent 35%)",
+      }}
+    >
       <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Office Time
+            Office Time Calculator App
           </Typography>
           <Stack direction="row" spacing={1}>
             {features.map((feature, index) => (
@@ -91,13 +97,37 @@ const ClockApp = () => {
                 sx={{
                   height: "100%",
                   cursor: "pointer",
-                  transition: "0.2s",
-                  border: selectedFeature === index ? 2 : 1,
+                  position: "relative",
+                  overflow: "hidden",
+                  transition: "all 0.25s ease",
+                  border: "1px solid",
                   borderColor:
-                    selectedFeature === index ? "primary.main" : "divider",
+                    selectedFeature === index
+                      ? "rgba(124,77,255,0.7)"
+                      : "rgba(255,255,255,0.08)",
+                  background:
+                    selectedFeature === index
+                      ? "linear-gradient(145deg, rgba(124,77,255,0.16), rgba(0,212,255,0.04))"
+                      : "linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
+                  boxShadow:
+                    selectedFeature === index
+                      ? "0 0 30px rgba(124,77,255,0.18)"
+                      : "0 10px 30px rgba(0,0,0,0.25)",
                   "&:hover": {
-                    transform: "translateY(-3px)",
-                    boxShadow: 4,
+                    transform: "translateY(-5px)",
+                    borderColor: "rgba(124,77,255,0.6)",
+                    boxShadow: "0 0 35px rgba(124,77,255,0.18)",
+                  },
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "2px",
+                    background: "linear-gradient(90deg, #7c4dff, #00d4ff)",
+                    opacity: selectedFeature === index ? 1 : 0,
+                    transition: "opacity 0.25s ease",
                   },
                 }}
               >
@@ -119,8 +149,37 @@ const ClockApp = () => {
           ))}
         </Grid>
       </Container>
+      <Box
+        component="footer"
+        sx={{
+          py: 3,
+          mt: 4,
+          textAlign: "center",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
+        }}
+      >
+        <Typography variant="body2" color="text.secondary">
+          Made by{" "}
+          <Box
+            component="a"
+            href="https://naveenls-portfolio-website.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              color: "#00d4ff",
+              textDecoration: "none",
+              fontWeight: 600,
+              transition: "all 0.2s ease",
+              "&:hover": {
+                color: "#7c4dff",
+                textDecoration: "underline",
+              },
+            }}
+          >
+            Naveen L S
+          </Box>
+        </Typography>
+      </Box>
     </Box>
   );
-};
-
-export default ClockApp;
+}

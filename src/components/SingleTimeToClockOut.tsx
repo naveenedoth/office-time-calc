@@ -60,6 +60,15 @@ const SingleTimeToClockOut = () => {
             onChange={(e) => setClockinTime(e.target.value)}
             slotProps={{ inputLabel: { shrink: true } }}
             fullWidth
+            sx={{
+              "& .MuiInputBase-input": {
+                cursor: "text",
+              },
+              "& input[type='time']::-webkit-calendar-picker-indicator": {
+                cursor: "pointer",
+                filter: "invert(1)",
+              },
+            }}
           />
           <TextField
             label="Working hours"
@@ -81,7 +90,10 @@ const SingleTimeToClockOut = () => {
             }}
             fullWidth
           />
-          <Button variant="contained" onClick={handleCalculateSingleTimeToClockOut}>
+          <Button
+            variant="contained"
+            onClick={handleCalculateSingleTimeToClockOut}
+          >
             Calculate
           </Button>
           {calculatedTime12 && calculatedTime24 && (

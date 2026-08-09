@@ -57,6 +57,15 @@ const SingleTimeSpent = () => {
             onChange={(e) => setClockinTime(e.target.value)}
             slotProps={{ inputLabel: { shrink: true } }}
             fullWidth
+            sx={{
+              "& .MuiInputBase-input": {
+                cursor: "text",
+              },
+              "& input[type='time']::-webkit-calendar-picker-indicator": {
+                cursor: "pointer",
+                filter: "invert(1)",
+              },
+            }}
           />
           <TextField
             label="Clock-out time"
@@ -65,6 +74,15 @@ const SingleTimeSpent = () => {
             onChange={(e) => setClockoutTime(e.target.value)}
             slotProps={{ inputLabel: { shrink: true } }}
             fullWidth
+            sx={{
+              "& .MuiInputBase-input": {
+                cursor: "text",
+              },
+              "& input[type='time']::-webkit-calendar-picker-indicator": {
+                cursor: "pointer",
+                filter: "invert(1)",
+              },
+            }}
           />
           <Button variant="contained" onClick={handleCalculateSingleTimeSpent}>
             Calculate

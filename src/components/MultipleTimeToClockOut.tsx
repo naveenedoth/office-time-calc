@@ -111,6 +111,15 @@ const MultipleTimeToClockOut = () => {
                 onChange={(e) => updateTimePair(index, "entry", e.target.value)}
                 slotProps={{ inputLabel: { shrink: true } }}
                 fullWidth
+                sx={{
+                  "& .MuiInputBase-input": {
+                    cursor: "text",
+                  },
+                  "& input[type='time']::-webkit-calendar-picker-indicator": {
+                    cursor: "pointer",
+                    filter: "invert(1)",
+                  },
+                }}
               />
               <TextField
                 label={`Exit ${index + 1}`}
@@ -119,6 +128,15 @@ const MultipleTimeToClockOut = () => {
                 onChange={(e) => updateTimePair(index, "exit", e.target.value)}
                 slotProps={{ inputLabel: { shrink: true } }}
                 fullWidth
+                sx={{
+                  "& .MuiInputBase-input": {
+                    cursor: "text",
+                  },
+                  "& input[type='time']::-webkit-calendar-picker-indicator": {
+                    cursor: "pointer",
+                    filter: "invert(1)",
+                  },
+                }}
               />
               <IconButton
                 color="error"
@@ -153,7 +171,10 @@ const MultipleTimeToClockOut = () => {
             }}
             fullWidth
           />
-          <Button variant="contained" onClick={handleCalculateMultipleTimeToClockOut}>
+          <Button
+            variant="contained"
+            onClick={handleCalculateMultipleTimeToClockOut}
+          >
             Calculate
           </Button>
           {result && (

@@ -98,6 +98,15 @@ const MultipleTimeSpent = () => {
                 onChange={(e) => updateTimePair(index, "entry", e.target.value)}
                 slotProps={{ inputLabel: { shrink: true } }}
                 fullWidth
+                sx={{
+                  "& .MuiInputBase-input": {
+                    cursor: "text",
+                  },
+                  "& input[type='time']::-webkit-calendar-picker-indicator": {
+                    cursor: "pointer",
+                    filter: "invert(1)",
+                  },
+                }}
               />
               <TextField
                 label={`Exit ${index + 1}`}
@@ -106,6 +115,15 @@ const MultipleTimeSpent = () => {
                 onChange={(e) => updateTimePair(index, "exit", e.target.value)}
                 slotProps={{ inputLabel: { shrink: true } }}
                 fullWidth
+                sx={{
+                  "& .MuiInputBase-input": {
+                    cursor: "text",
+                  },
+                  "& input[type='time']::-webkit-calendar-picker-indicator": {
+                    cursor: "pointer",
+                    filter: "invert(1)",
+                  },
+                }}
               />
               <IconButton
                 color="error"
@@ -120,7 +138,10 @@ const MultipleTimeSpent = () => {
             <Button variant="outlined" onClick={addTimePair}>
               Add Period
             </Button>
-            <Button variant="contained" onClick={handleCalculateMultipleTimeSpent}>
+            <Button
+              variant="contained"
+              onClick={handleCalculateMultipleTimeSpent}
+            >
               Calculate
             </Button>
           </Stack>

@@ -70,7 +70,7 @@ The terminal will provide a local URL, usually:
 http://localhost:5173
 ```
 
-Open it in your browser.
+* Open it in your browser.
 
 After cloning the project, dependencies can always be restored with:
 
