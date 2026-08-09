@@ -54,18 +54,45 @@ export default function ClockApp() {
           "radial-gradient(circle at 50% -10%, rgba(124,77,255,0.18), transparent 35%)",
       }}
     >
+
       <AppBar position="sticky">
-        <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+        <Toolbar
+          sx={{
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: { xs: "stretch", sm: "center" },
+            gap: { xs: 1, sm: 0 },
+            py: { xs: 1.5, sm: 1 },
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{
+              flexGrow: 1,
+              textAlign: { xs: "center", sm: "left" },
+            }}
+          >
             Office Time Calculator App
           </Typography>
-          <Stack direction="row" spacing={1}>
+          <Stack
+            direction={{ xs: "row", sm: "row" }}
+            spacing={1}
+            sx={{
+              width: { xs: "100%", sm: "auto" },
+              display: { xs: "grid", sm: "flex" },
+              gridTemplateColumns: { xs: "1fr 1fr", sm: "none" },
+            }}
+          >
             {features.map((feature, index) => (
               <Button
                 key={feature.title}
                 color="inherit"
                 variant={selectedFeature === index ? "outlined" : "text"}
                 onClick={() => setSelectedFeature(index)}
+                sx={{
+                  minWidth: { xs: 0, sm: "auto" },
+                  fontSize: { xs: "0.75rem", sm: "0.875rem" },
+                  px: { xs: 0.75, sm: 1 },
+                }}
               >
                 {feature.title}
               </Button>
